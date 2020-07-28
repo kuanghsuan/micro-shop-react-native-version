@@ -6,7 +6,7 @@ import {
   Platform,
   Alert,
   KeyboardAvoidingView,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import HeaderButton from "../../components/UI/HeaderButton";
 import * as productsActions from "../../store/actions/products";
 import Input from "../../components/UI/Input";
-import Colors from '../../constants/Colors';
+import Colors from "../../constants/Colors";
 const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
 
 const formReducer = (state, action) => {
@@ -44,8 +44,6 @@ const EditProductScreen = (props) => {
   const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState();
 
-
-
   const prodId = props.navigation.getParam("productId");
   const editedProduct = useSelector((state) =>
     state.products.userProducts.find((prod) => prod.id === prodId)
@@ -70,9 +68,9 @@ const EditProductScreen = (props) => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An error occured!', error, [{text: 'Okay'}]);
+      Alert.alert("An error occured!", error, [{ text: "Okay" }]);
     }
-  }, [error])
+  }, [error]);
 
   const submitHandler = useCallback(async () => {
     if (!formState.formIsValid) {
@@ -107,9 +105,8 @@ const EditProductScreen = (props) => {
     } catch (err) {
       setError(err.message);
     }
-    
+
     setisLoading(false);
-    
   }, [dispatch, prodId, formState]);
 
   useEffect(() => {
@@ -118,7 +115,6 @@ const EditProductScreen = (props) => {
 
   const inputChangeHandler = useCallback(
     (inputIdentifier, inputValue, inputValidity) => {
-
       dispatchFormState({
         type: FORM_INPUT_UPDATE,
         value: inputValue,
@@ -151,7 +147,11 @@ const EditProductScreen = (props) => {
   }
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding" keyboardVerticalOffset={100}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior="padding"
+      keyboardVerticalOffset={100}
+    >
       <ScrollView>
         <View style={styles.form}>
           <Input
