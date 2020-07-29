@@ -14,7 +14,7 @@
 	<img src="./assets/demo.jpg" width="600">
 </p>
 
-## Overview
+# Overview
 
 4 screens are availables : Login, Order, Product and Auth. Using <strong>redux</strong>, <strong>hook</strong> to manage the state of user's products, all products, cart items, and user's orders.
 
@@ -43,3 +43,43 @@ $ npm install
  1. Downlod `react-native-debugger_0.11.3.dmg` on https://github.com/jhen0409/react-native-debugger/releases.
  2. Press `command+D` on your simulator and click `Debug remote JS`, the React Native Debugger will connect to your app.
  3. Open React Native Debugger you just download and press `command+T` to type the port(usually is 19001).
+ 
+# Props
+### AuthInput
+
+| Name           | Type     | Required | Description                                               | Example                                             |
+| -------------- | -------- | -------- | --------------------------------------------------------- | --------------------------------------------------- |
+| `id`           | string   | Yes      | Id of input field.                                        | `id="title"`                                        |
+| `label`        | string   | Yes      | Lable of input field.                                     | `label="Title"`                                     |
+| `keyboadType`  | string   | No       | Type of keyboad.                                          | `keyboadType="default."`                            |
+| `required`     | boolean  | Yes      | Whether this field need to validate.                      | `required=true`                                     |
+| `errorText`    | string   | Yes      | Display the error when invalid.                           | `errorText`                                         |
+| `onInputChange`| function | Yes      | Swipe card to right.                                      | `onInputChange={inputChangeHandler}`                |
+| `initialValue` | string   | Yes      | Display the initial text in the field.                    | `initialValue=""`                                   |
+
+### ProductItem
+
+| Name           | Type     | Required | Description                                               | Example                                             |
+| -------------- | -------- | -------- | --------------------------------------------------------- | --------------------------------------------------- |
+| `image`        | string   | Yes      | Image of product.                                         | `image="123.jpg"`                                   |
+| `title`        | string   | Yes      | Title of product.                                         | `title="T-shirt"`                                   |
+| `price`        | string   | Yes      | Price of product.                                         | `price=10`                                          |
+| `onSelect`     | function | Yes      | Press to remove this cart item.                           | `onSelect={() => {}}`                               |
+
+### CartItem
+
+| Name           | Type     | Required | Description                                               | Example                                             |
+| -------------- | -------- | -------- | --------------------------------------------------------- | --------------------------------------------------- |
+| `amount`       | string   | Yes      | Amount of ordered product.                                | `amount="3"`                                        |
+| `date`         | string   | Yes      | Date of ordered date.                                     | `date="July 29, 2020, 02:56 PM"`                    |
+| `deletable`    | boolean  | Yes      | Whether this item can be deleted.                         | `deletable=true`                                    |
+| `onRemove`     | function | Yes      | Press to remove this cart item.                           | `onRemove={()={}}`.                                 |
+
+### OrderItem
+
+| Name           | Type      | Required | Description                                               | Example                                             |
+| -------------- | --------- | -------- | --------------------------------------------------------- | --------------------------------------------------- |
+| `amount`       | string    | Yes      | Amount of ordered product.                                | `amount="3"`                                        |
+| `date`         | string    | Yes      | Date of ordered date.                                     | `date="July 29, 2020, 02:56 PM"`                    |
+| `items`        | CartItem[]| Yes      | Array of cartItem which be ordered.                       | `items={itemData.item.items}`                       |
+
