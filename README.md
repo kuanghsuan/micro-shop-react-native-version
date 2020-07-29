@@ -1,12 +1,7 @@
 # micro-shop-react-native-version
-<h1 align="center">
-<img
-		width="250"
-		alt="Tinder Clone - React Native"
-		src="./assets/demo.jpg">
-</h1>
+
 <h3 align="center">
-	Tinder Clone - React Native
+	Micro Store - React Native
 </h3>
 
 <p align="center">
@@ -16,5 +11,5 @@
 </p>
 
 <p align="center">
-	<img src="https://github.com/stevenpersia/tinder-react-native/blob/master/preview/tinderclone-preview.gif" width="300">
+	<img src="./assets/demo.jpg" width="300">
 </p>
