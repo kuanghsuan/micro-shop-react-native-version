@@ -7,6 +7,8 @@ import {
   Button,
   ActivityIndicator,
   Alert,
+  Image,
+  Dimensions
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useDispatch } from "react-redux";
@@ -86,11 +88,13 @@ const AuthScreen = (props) => {
     setIsLoading(true);
     try {
       await dispatch(action);
+      props.navigation.navigate('Shop');
     } catch (err) {
       setError(err.message);
+      setIsLoading(false);
     }
 
-    setIsLoading(false);
+    
   };
   const inputChangeHandler = useCallback(
     (inputIdentifier, inputValue, inputValidity) => {
@@ -110,6 +114,17 @@ const AuthScreen = (props) => {
       style={styles.screen}
     >
       <LinearGradient colors={["#ffedff", "#ffe3ff"]} style={styles.gradient}>
+        <View style={styles.imageContainer}>
+          <Image
+            fadeDuration={1000}
+            style={styles.image}
+            resizeMode="cover"
+            source={{
+              uri:
+                "https://i.pinimg.com/236x/8d/60/d8/8d60d8efcb9becf113d9aff2cf4e92a6--cartoon-city-store.jpg",
+            }}
+          />
+        </View>
         <Card style={styles.authContainer}>
           <ScrollView>
             <Input
@@ -163,7 +178,7 @@ const AuthScreen = (props) => {
 };
 
 AuthScreen.navigationOptions = {
-  headerTitle: "Please authenticate",
+  headerTitle: "Buy All You Need",
 };
 const styles = StyleSheet.create({
   screen: {
@@ -182,6 +197,19 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10,
+  },
+  imageContainer: {
+    width: Dimensions.get("window").width * 0.6,
+    height: Dimensions.get("window").width * 0.6,
+    borderRadius: Dimensions.get("window").width * 0.3,
+    borderWidth: 3,
+    borderColor: "white",
+    overflow: "hidden",
+    margin: Dimensions.get("window").height / 20,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
   },
 });
 

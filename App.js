@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import ShopNavigator from './navigation/ShopNavigation';
+import NavigationContainer from "./navigation/NavigationContainer";
 import productsReducer from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
 import orderReducer from './store/reducers/order';
+import authReducer from './store/reducers/auth';
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 //import { composeWithDevTools } from 'redux-devtools-extension';
@@ -13,7 +14,8 @@ import ReduxThunk from 'redux-thunk';
 const rootreducer = combineReducers({
   products: productsReducer,
   carts: cartReducer,
-  orders: orderReducer
+  orders: orderReducer,
+  auth: authReducer
 })
 
 const store = createStore(rootreducer, applyMiddleware(ReduxThunk));
@@ -40,7 +42,7 @@ export default function App() {
   }
   return (
     <Provider store={store}>
-      <ShopNavigator />
+      <NavigationContainer />
     </Provider>
   );
 }
