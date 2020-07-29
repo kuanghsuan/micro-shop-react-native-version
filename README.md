@@ -14,6 +14,11 @@
 	<img src="./assets/demo.jpg" width="600">
 </p>
 
+## Overview
+
+4 screens are availables : Login, Order, Product and Auth. Using <strong>redux</strong>, <strong>hook</strong> to manage the state of user's products, all products, cart items, and user's orders.
+
+Using <strong>firebase</strong> as backend to storage the products, orders and cart items. As well as authentication.
 
 # Setup
   In your terminal, make sure your Node.js version is not less than 10.13.0, run `sudo npm install expo-cli —global`.
@@ -21,7 +26,7 @@
 ```
 # Example workflow for contributing to a project:
 $ git clone https://github.com/kuanghsuan/what-to-eat-mobile.git
-$ cd what-to-eat-mobile
+$ cd micro-shop-react-native-version
 
 # install all required packages
 $ npm install
