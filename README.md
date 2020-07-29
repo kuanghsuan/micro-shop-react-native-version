@@ -53,7 +53,7 @@ $ npm install
 | `keyboadType`  | string   | No       | Type of keyboad.                                          | `keyboadType="default."`                            |
 | `required`     | boolean  | Yes      | Whether this field need to validate.                      | `required=true`                                     |
 | `errorText`    | string   | Yes      | Display the error when invalid.                           | `errorText`                                         |
-| `onInputChange`| function | Yes      | Swipe card to right.                                      | `onInputChange={inputChangeHandler}`                |
+| `onInputChange`| function | Yes      | Change the text field.                                    | `onInputChange={inputChangeHandler}`                |
 | `initialValue` | string   | Yes      | Display the initial text in the field.                    | `initialValue=""`                                   |
 
 ### ProductItem
